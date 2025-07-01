@@ -119,7 +119,7 @@ n_steps_ahead = st.sidebar.slider("Số ngày dự báo (ahead):", 1, 10, 1)
 
 
 st.sidebar.header("⚙️ Tùy chọn mô hình")
-model_type = st.sidebar.selectbox("Chọn mô hình:", ["LGBM", "SVR", "Linear"])
+model_type = st.sidebar.selectbox("Chọn mô hình:", ["LGBM", "RF", "LSTM"])
     
 st.sidebar.header("⚙️ Tùy chọn siêu tham số")
 if model_type == "LGBM":        
@@ -148,9 +148,9 @@ if model_type == "LGBM":
     else:
         pass        
     
-elif model_type == "SVR":
+elif model_type == "RF":
     pass
-elif model_type == "Linear":
+elif model_type == "LSTM":
     pass
             
 if st.sidebar.button("🧠 Huấn luyện và dự báo bằng mô hình"):
