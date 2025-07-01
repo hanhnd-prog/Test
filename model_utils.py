@@ -167,7 +167,9 @@ def train_and_predict(df,model_type,lags_lst = [1,2,3], n_steps_ahead = 3,params
     X_test = test
     # y_test = test[[f'Flow_t+{i}' for i in range(1, n_steps_ahead + 1)]]
     # y_test.to_csv('LC_y_test.csv')
-
+    
+    print("X_test:",X_test.shape)
+    
     # 2.
     # X_train = train.drop(columns=[f'Flow_t+{i}' for i in range(1, n_steps_ahead + 1)])
     # y_train = train[['Flow'] + [f'Flow_t+{i}' for i in range(1, n_steps_ahead + 1)]]
@@ -209,7 +211,7 @@ def train_and_predict(df,model_type,lags_lst = [1,2,3], n_steps_ahead = 3,params
     ## 4.6. inverse box-cox
     train_pred = inv_boxcox(train_pred_unscaled, param_1)
     test_pred = inv_boxcox(test_pred_unscaled, param_1)
-    return model, train_pred,test_pred
+    return model, train,train_pred,test_pred
 
 def append_results_to_csv():
     pass
